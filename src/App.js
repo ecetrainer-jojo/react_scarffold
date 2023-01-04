@@ -7,7 +7,7 @@ import './App.css'
 //创建并默认暴露APP 类式组建
 export default class App extends Component{
 
-  //constructor to initialize the state valeu
+  //constructor to initialize the state value
   constructor(props){
     super(props)
     this.state = {toDoList:new Map()}
@@ -45,9 +45,5 @@ export default class App extends Component{
       </div>
     </div>
     )
-  }
-
-  componentDidUpdate(){
-    console.log("Component did update")
   }
 }

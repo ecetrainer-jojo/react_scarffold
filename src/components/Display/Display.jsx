@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Item from '../Item/Item'
+import Item from '../Item/Item.tsx'
 import './Display.css'
 
 export default class Display extends Component {
