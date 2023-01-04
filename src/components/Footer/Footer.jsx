@@ -33,11 +33,6 @@ export default class Footer extends Component {
   markAllItems = (event)=>{
     const {toDoList, modifyItemStatus} = this.props
     const checked = event.target.checked
-    console.log(checked)
-    Array.from(document.getElementsByTagName("li")).forEach(element=>{
-        element.getElementsByTagName("input")[0].checked = checked
-    })
-
     Array.from(toDoList.keys()).forEach(item=>{
         modifyItemStatus(item,checked)
     })
