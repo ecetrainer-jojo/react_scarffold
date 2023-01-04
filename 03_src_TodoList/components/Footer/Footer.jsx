@@ -8,7 +8,7 @@ export default class Footer extends Component {
     return (
         <div className="todo-footer">
         <label>
-          <input onChange={this.markAllItems} checked={totalSize===completeSize} type="checkbox"/>
+          <input onChange={this.markAllItems} checked={totalSize===completeSize && totalSize!==0} type="checkbox"/>
         </label>
         <span>
           <span>已完成 / 全部  </span> {`[ ${completeSize} / ${totalSize} ]`}
