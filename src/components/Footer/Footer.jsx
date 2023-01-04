@@ -4,13 +4,14 @@ import './Footer.css'
 export default class Footer extends Component {
   render() {
     const totalSize = this.props.toDoList.size
+    const completeSize = this.getCompleteStatus()
     return (
         <div className="todo-footer">
         <label>
-          <input onClick={this.markAllItems} type="checkbox"/>
+          <input onChange={this.markAllItems} checked={totalSize===completeSize} type="checkbox"/>
         </label>
         <span>
-          <span>已完成 / 全部  </span> {`[ ${this.getCompleteStatus()} / ${totalSize} ]`}
+          <span>已完成 / 全部  </span> {`[ ${completeSize} / ${totalSize} ]`}
         </span>
         <button onClick={this.deleteCompletedItems} className="btn btn-danger">清除已完成任务</button>
       </div>
@@ -19,7 +20,7 @@ export default class Footer extends Component {
 
   getCompleteStatus = ()=>{
     const {toDoList} = this.props
-    return Array.from(toDoList.values()).filter(result=>result).length
+    return Array.from(toDoList.values()).reduce((prev,curr)=>prev+(curr?1:0),0)
   }
 
   deleteCompletedItems = ()=>{
@@ -40,7 +41,5 @@ export default class Footer extends Component {
     Array.from(toDoList.keys()).forEach(item=>{
         modifyItemStatus(item,checked)
     })
-
-
   }
 }

@@ -28,11 +28,14 @@ export default class Item extends Component<MyProps,MyState> {
   }
 
   deleteToDo=(event:React.MouseEvent)=>{
-   const {deleteItem} = this.props
-   const target = event.target as HTMLInputElement
-   const labelSibling = target.previousSibling as HTMLElement
-   const itemValue = labelSibling?.getElementsByTagName("span")[0].textContent
-   deleteItem(itemValue)
+   // ask user's confirmation 
+   if(window.confirm("确定删除吗")){
+    const {deleteItem} = this.props
+    const target = event.target as HTMLInputElement
+    const labelSibling = target.previousSibling as HTMLElement
+    const itemValue = labelSibling?.getElementsByTagName("span")[0].textContent
+    deleteItem(itemValue)
+   }
   }
 
   handleMouseEvent = (mouseIn:boolean)=>{
